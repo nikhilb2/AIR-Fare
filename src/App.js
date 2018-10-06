@@ -43,16 +43,13 @@ class App extends Component {
   }
   render() {
     console.log(this.state.flights);
-    return this.state.loading ? (
-      <div className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        loading
-      </div>
-    ) : (
+    return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo2" alt="logo" />
-          Low Cost Air Fare
+        {this.state.loading?
+        <div><img src={logo} className="App-logo" alt="logo" />
+          <br />Loading</div>:<div><img src={logo} className="App-logo2" alt="logo" />
+          <br />Low Cost Air Fare</div>}
         </header>
         <br />
         <div className="App-center">
