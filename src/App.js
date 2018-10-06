@@ -49,7 +49,7 @@ class App extends Component {
           <SearchBar searchAmadeus={this.searchAmadeus} />
           <br />
         </div>
-        {this.state.flights.map(results => {
+        {this.state.flights?this.state.flights.map(results => {
           return (
             <div className="results">
               <div className="fare">Fare $ {results.fare.total_price}</div>{" "}
@@ -72,7 +72,7 @@ class App extends Component {
               ))}
             </div>
           );
-        })}
+        }):<div>No results</div>}
       </div>
     );
   }
