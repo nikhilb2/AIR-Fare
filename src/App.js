@@ -41,7 +41,7 @@ class App extends Component {
     ) : (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src={logo} className="App-logo2" alt="logo" />
           <h3>Low Cost Air Fare</h3>
         </header>
         <br />
