@@ -42,7 +42,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h3>Low Cost Air Fare</h3>  
+          <h3>Low Cost Air Fare</h3>
         </header>
         <br />
         <div className="App-center">
@@ -60,12 +60,11 @@ class App extends Component {
                   Duration {results2.outbound.duration}{" "}
                   {results2.outbound.flights.map(result3 => (
                     <div>
-                      Aircraft {result3.aircraft} From{" "}
+                      Flight <strong>{result3.operating_airline} {result3.flight_number}</strong> From{" "}
                       <strong>{result3.origin.airport}</strong> Departure Time{" "}
                       {result3.departs_at} To >>>>>>>{" "}
                       <strong>{result3.destination.airport}</strong> Arrival
-                      Time {result3.arrives_at} Flight Number{" "}
-                      {result3.flight_number}
+                      Time {result3.arrives_at}
                       <br />
                     </div>
                   ))}
