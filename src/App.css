@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: skyblue;
 }
 
 .App-logo {
@@ -56,7 +57,7 @@
   border-radius:5px;
   width:50%;
   margin:auto;
-  margin-top: 5px;
+  margin-top: 13px;
 }
 .des {
   border: 1px solid purple;

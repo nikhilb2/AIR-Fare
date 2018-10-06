@@ -2,8 +2,18 @@ import React, { Component } from "react";
 import logo from "./logo.png";
 import "./App.css";
 import SearchBar from "../src/components/SearchBar/SearchBar.js";
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
 //import FlightsList from "../src/components/flightslist/FlightsList.js";
 import { Amadeus } from "./utils/Amadeus.js";
+const styles = theme => ({
+  root: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
+    margin:"20px",
+  },
+});
 class App extends Component {
   constructor(props) {
     super(props);
@@ -42,7 +52,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo2" alt="logo" />
-          <h3>Low Cost Air Fare</h3>
+          Low Cost Air Fare
         </header>
         <br />
         <div className="App-center">
@@ -51,7 +61,7 @@ class App extends Component {
         </div>
         {this.state.flights?this.state.flights.map(results => {
           return (
-            <div className="results">
+            <Paper className={this.props.classes.root} elevation={5}>
               <div className="fare">Fare $ {results.fare.total_price}</div>{" "}
               {results.itineraries.map(results2 => (
                 <div>
@@ -70,12 +80,11 @@ class App extends Component {
                   ))}
                 </div>
               ))}
-            </div>
-          );
+            </Paper>);
         }):<div>No results</div>}
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

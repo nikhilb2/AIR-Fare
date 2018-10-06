@@ -4,9 +4,9 @@ class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      origin: "",
-      destination: "",
-      date: ""
+      origin: "DEL",
+      destination: "BOM",
+      date: "2018-12-19"
     };
     this.search = this.search.bind(this);
     this.handleOrigin = this.handleOrigin.bind(this);
