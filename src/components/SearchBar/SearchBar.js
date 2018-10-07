@@ -1,6 +1,5 @@
 import React from "react";
 import "./SearchBar.css";
-import App from "../../App"
 import { Amadeus } from "../../utils/Amadeus.js";
 class SearchBar extends React.Component {
   constructor(props) {
@@ -34,7 +33,7 @@ class SearchBar extends React.Component {
   }
   handleOrigin(event) {
     console.log(event.target.value);
-    this.setState({ term:event.target.value });
+    this.setState({ origin: event.target.value, term:event.target.value });
     this.handleAmadeusTerm()
   }
   handleDestination(event) {
@@ -60,19 +59,22 @@ class SearchBar extends React.Component {
       <datalist id="suggestions">
         {this.state.autocomplete && this.state.autocomplete.map(values=><option value={values.value}>{values.label}</option>)}
         </datalist>
-        <input
+        Origin<input
           placeholder="Enter Origin"
           onChange={this.handleOrigin}
           onKeyPress={this.handleKeypress}
           list="suggestions"
-        />
-        <input
+          />
+        Destination<input
           placeholder="Enter Destination"
           onChange={this.handleDestination}
           onKeyPress={this.handleKeypress}
           list="suggestions"
-        />
-        <input id="date" type="date" onChange={this.handleDate} />
+          />
+        Date of Journey<input placeholder="date"
+          type="date"
+          onChange={this.handleDate}
+          />
         <a onClick={this.search}>SEARCH</a>
       </div>
     );
