@@ -34,7 +34,7 @@ class SearchBar extends React.Component {
   }
   handleOrigin(event) {
     console.log(event.target.value);
-    this.setState({ origin: event.target.value,term:event.target.value });
+    this.setState({ term:event.target.value });
     this.handleAmadeusTerm()
   }
   handleDestination(event) {
@@ -58,7 +58,7 @@ class SearchBar extends React.Component {
     return (
       <div className="SearchBar">
       <datalist id="suggestions">
-        {this.state.autocomplete && this.state.autocomplete.map(values=><option value={values.label} />)}
+        {this.state.autocomplete && this.state.autocomplete.map(values=><option value={values.value}>{values.label}</option>)}
         </datalist>
         <input
           placeholder="Enter Origin"
