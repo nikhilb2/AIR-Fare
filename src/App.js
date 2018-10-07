@@ -19,7 +19,8 @@ class App extends Component {
     super(props);
     this.state = {
       flights: [],
-      loading: false
+      loading: false,
+      autocomplete:[]
     };
     this.searchAmadeus = this.searchAmadeus.bind(this);
   }
@@ -34,16 +35,14 @@ class App extends Component {
         flights,
         loading: false
       });
-    });
+    })
+    ;
   }
-  sortResults() {
-    this.state.flights.map(results => {
-      return <div>{results}</div>;
-    });
-  }
+
   render() {
-    console.log(this.state.flights);
-    return (
+    console.log(this.state.flights)
+      return (
+
       <div className="App">
         <header className="App-header">
         {this.state.loading?
@@ -83,5 +82,5 @@ class App extends Component {
     );
   }
 }
-
+Amadeus.autocomplete()
 export default withStyles(styles)(App);
