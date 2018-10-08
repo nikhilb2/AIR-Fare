@@ -8,21 +8,28 @@ class SearchBar extends React.Component {
       origin: "DEL",
       destination: "BOM",
       date: "2018-12-19",
+      returnDate:"",
       term:"",
-      autocomplete:[]
+      term2:"",
+      autocomplete:[],
+      returnOrOneWay:true
     };
     this.search = this.search.bind(this);
     this.handleOrigin = this.handleOrigin.bind(this);
     this.handleDestination = this.handleDestination.bind(this);
     this.handleDate = this.handleDate.bind(this);
     this.handleKeypress = this.handleKeypress.bind(this);
-    this.handleAmadeusTerm = this.handleAmadeusTerm.bind(this)
+    this.handleAmadeusTerm = this.handleAmadeusTerm.bind(this);
+    this.handleOneway=this.handleOneway.bind(this);
+    this.handleReturnDateChange=this.handleReturnDateChange.bind(this)
   }
   search() {
     this.props.searchAmadeus(
       this.state.origin,
       this.state.destination,
-      this.state.date
+      this.state.date,
+      this.state.returnOrOneWay,
+      this.state.returnDate
     );
   }
 
@@ -45,6 +52,19 @@ class SearchBar extends React.Component {
     console.log(event.target.value);
     this.setState({ date: event.target.value });
   }
+  handleReturnDateChange(event) {
+    this.setState({returnDate:event.target.value})
+  }
+
+  handleOneway(event) {
+    console.log(event.target.value)
+    let inputValue = event.target.value
+    if (inputValue==="true") {
+    this.setState({returnOrOneWay:true})} else{
+      this.setState({returnOrOneWay:false})}
+    }
+
+
   handleAmadeusTerm(term) {
     Amadeus.autocomplete(this.state.term).then(autocomplete => {
       this.setState({
@@ -59,6 +79,23 @@ class SearchBar extends React.Component {
       <datalist id="suggestions">
         {this.state.autocomplete && this.state.autocomplete.map(values=><option value={values.value}>{values.label}</option>)}
         </datalist>
+        <div className="fieldset">
+        <fieldset>
+            <legend>Search Options</legend>
+
+            <div className="radiobutton">
+                <input type="radio" id="oneway"
+                       name="flight" value="true" defaultChecked onChange={this.handleOneway}/>
+                <label>One Way</label>
+            </div>
+
+            <div className="radiobutton">
+              <span><input type="radio" id="return"
+                       name="flight" value="false" onChange={this.handleOneway}/></span>
+                <span><label htmlFor="return">with Return</label></span>
+            </div>
+        </fieldset><br />
+        </div>
         Origin<input
           placeholder="Enter Origin"
           onChange={this.handleOrigin}
@@ -75,6 +112,12 @@ class SearchBar extends React.Component {
           type="date"
           onChange={this.handleDate}
           />
+
+          Return Date<input placeholder="Return date"
+            type="date"
+            onChange={this.handleReturnDateChange} disabled={this.state.returnOrOneWay}
+            />
+
         <a onClick={this.search}>SEARCH</a>
       </div>
     );

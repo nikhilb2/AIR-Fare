@@ -3,17 +3,23 @@ const api = "1OdmJZRfKHQZGKsfNYw2zUNlGIkzEqMG";
 const url =
   "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=";
 const autoUrl = "https://api.sandbox.amadeus.com/v1.2/airports/autocomplete/?apikey="
+let serachWithReturn;
 export const Amadeus = {
-  async search(origin, destination, date) {
+  async search(origin, destination, date, returnOrOneWay,returnDate) {
     try {
+      if (returnOrOneWay) {
+        serachWithReturn=""
+      } else {
+        serachWithReturn="&return_date="+returnDate
+      }
       const response = await fetch(
-        `${url}${api}&origin=${origin}&destination=${destination}&departure_date=${date}`
+        `${url}${api}&origin=${origin}&destination=${destination}&departure_date=${date}${serachWithReturn}`
       );
       console.log(response);
       if (response.ok) {
         const jsonResponse = await response.json();
         console.log(jsonResponse);
-        if (jsonResponse.results) {
+          if (jsonResponse.results) {
           return jsonResponse.results;
         } else {
           return [];
