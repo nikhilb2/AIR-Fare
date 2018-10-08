@@ -46,7 +46,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           {this.state.loading ? (
-            <div>
+            <div className="loading">
               <img src={logo} className="App-logo" alt="logo" />
               <br />
               Loading
@@ -69,7 +69,7 @@ class App extends Component {
               <Paper className={this.props.classes.root} elevation={5}>
                 <div className="fare">Fare $ {results.fare.total_price}</div>{" "}
                 {results.itineraries.map(results2 => (
-                  <div>
+                  <div className="combine">
                     {" "}
                     <div>********</div>
                     Duration {results2.outbound.duration}{" "}

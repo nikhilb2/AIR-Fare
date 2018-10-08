@@ -64,11 +64,35 @@
   width: auto;
 }
 
+.radiobutton {
+  color:white;
+  font-size: 10px;
+  text-align: left;
+  display: inline;
+  position: static;
+  }
+
 .fieldset {
   color:white;
-  font-size: 10px
+  font-size: 10px;
+  text-align: left;
+  display: inline;
+
 }
 
-.radiobutton {
-  flex-wrap: wrap;
+.combine {
+  border: 2px solid purple;
+  border-radius: 5px;
+  margin:10px
+}
+div.combine:hover{
+  background-color:skyblue
+}
+
+.loading {
+  background-color: orange;
+  position: fixed;
+  top:100px;
+  opacity: 0.8;
+  border-radius: 5px;
 }

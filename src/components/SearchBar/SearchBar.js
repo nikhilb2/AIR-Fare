@@ -79,44 +79,44 @@ class SearchBar extends React.Component {
       <datalist id="suggestions">
         {this.state.autocomplete && this.state.autocomplete.map(values=><option value={values.value}>{values.label}</option>)}
         </datalist>
-        <div className="fieldset">
-        <fieldset>
+        <div>
+        <fieldset className="fieldset">
             <legend>Search Options</legend>
 
-            <div className="radiobutton">
+            <div >
                 <input type="radio" id="oneway"
                        name="flight" value="true" defaultChecked onChange={this.handleOneway}/>
-                <label>One Way</label>
+                <label htmlFor="oneway" className="radiobutton" >One Way</label>
             </div>
 
-            <div className="radiobutton">
-              <span><input type="radio" id="return"
-                       name="flight" value="false" onChange={this.handleOneway}/></span>
-                <span><label htmlFor="return">with Return</label></span>
+            <div >
+              <input type="radio" id="return"
+                       name="flight" value="false" onChange={this.handleOneway}/>
+                <label htmlFor="return" className="radiobutton">with Return</label>
             </div>
         </fieldset><br />
         </div>
-        Origin<input
+        <p>Origin</p><input type="text"
           placeholder="Enter Origin"
           onChange={this.handleOrigin}
           onKeyPress={this.handleKeypress}
           list="suggestions"
           />
-        Destination<input
+        <p>Destination</p><input type="text"
           placeholder="Enter Destination"
           onChange={this.handleDestination}
           onKeyPress={this.handleKeypress}
           list="suggestions"
           />
-        Date of Journey<input placeholder="date"
+        <p>Date of Journey</p><input placeholder="date"
           type="date"
           onChange={this.handleDate}
           />
 
-          Return Date<input placeholder="Return date"
+          {!this.state.returnOrOneWay && ['Return Date', <input placeholder="Return date"
             type="date"
             onChange={this.handleReturnDateChange} disabled={this.state.returnOrOneWay}
-            />
+            />]}
 
         <a onClick={this.search}>SEARCH</a>
       </div>
