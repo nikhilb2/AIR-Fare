@@ -20,13 +20,14 @@ class App extends Component {
     this.state = {
       flights: [],
       loading: false,
-      autocomplete: []
+      autocomplete: [],
+      currency1:""
     };
     this.searchAmadeus = this.searchAmadeus.bind(this);
   }
-  searchAmadeus(origin, destination, date, returnOrOneWay, returnDate) {
+  searchAmadeus(origin, destination, date, returnOrOneWay, returnDate,currency) {
     this.setState({ loading: true });
-    Amadeus.search(origin, destination, date, returnOrOneWay, returnDate).then(
+    Amadeus.search(origin, destination, date, returnOrOneWay, returnDate,currency).then(
       flights => {
         //const res = []
         //flight.forEach(item => item.forEach(item1 => item1.forEach(item2 => res.push(item2))))
@@ -34,7 +35,8 @@ class App extends Component {
 
         this.setState({
           flights,
-          loading: false
+          loading: false,
+          currency1:currency
         });
       }
     );
@@ -67,7 +69,7 @@ class App extends Component {
           this.state.flights.map(results => {
             return (
               <Paper className={this.props.classes.root} elevation={5}>
-                <div className="fare">Fare $ {results.fare.total_price}</div>{" "}
+                <div className="fare">Fare {this.state.currency1} {results.fare.total_price}</div>{" "}
                 {results.itineraries.map(results2 => (
                   <div className="combine">
                     {" "}
@@ -87,7 +89,7 @@ class App extends Component {
                       </div>
                     ))}
                     <br />
-                    {results2.inbound?<div>Return flight
+                    {results2.inbound?<div><strong>Return flight</strong>
                     <br /> Duration {results2.inbound.duration}
                     {results2.inbound.flights.map(result4 => (
                       <div>

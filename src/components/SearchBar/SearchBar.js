@@ -12,7 +12,8 @@ class SearchBar extends React.Component {
       term:"",
       term2:"",
       autocomplete:[],
-      returnOrOneWay:true
+      returnOrOneWay:true,
+      currency:"USD"
     };
     this.search = this.search.bind(this);
     this.handleOrigin = this.handleOrigin.bind(this);
@@ -21,7 +22,8 @@ class SearchBar extends React.Component {
     this.handleKeypress = this.handleKeypress.bind(this);
     this.handleAmadeusTerm = this.handleAmadeusTerm.bind(this);
     this.handleOneway=this.handleOneway.bind(this);
-    this.handleReturnDateChange=this.handleReturnDateChange.bind(this)
+    this.handleReturnDateChange=this.handleReturnDateChange.bind(this);
+    this.handleCurrencyChange=this.handleCurrencyChange.bind(this)
   }
   search() {
     this.props.searchAmadeus(
@@ -29,7 +31,8 @@ class SearchBar extends React.Component {
       this.state.destination,
       this.state.date,
       this.state.returnOrOneWay,
-      this.state.returnDate
+      this.state.returnDate,
+      this.state.currency
     );
   }
 
@@ -54,6 +57,9 @@ class SearchBar extends React.Component {
   }
   handleReturnDateChange(event) {
     this.setState({returnDate:event.target.value})
+  }
+  handleCurrencyChange(event) {
+    this.setState({ currency: event.target.value });
   }
 
   handleOneway(event) {
@@ -93,7 +99,14 @@ class SearchBar extends React.Component {
               <input type="radio" id="return"
                        name="flight" value="false" onChange={this.handleOneway}/>
                 <label htmlFor="return" className="radiobutton">with Return</label>
-            </div>
+            </div><br/>
+            <div><select onChange={this.handleCurrencyChange}>
+              <option value="USD" onChange={this.handleCurrencyChange}>USD</option>
+              <option value="INR" onChange={this.handleCurrencyChange}>INR</option>
+              <option value="EUR" onChange={this.handleCurrencyChange}>EUR</option>
+              <option value="GBP" onChange={this.handleCurrencyChange}>GBP</option>
+              <option value="UAH" onChange={this.handleCurrencyChange}>UAH</option>
+            </select> Select Currency</div>
         </fieldset><br />
         </div>
         <p>Origin</p><input type="text"
