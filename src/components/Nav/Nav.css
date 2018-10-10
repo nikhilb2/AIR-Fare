@@ -1,0 +1,35 @@
+.nav {
+  text-align: left;
+  display: inline;
+  align-items: left;
+  position:static;
+  text-decoration: none
+}
+
+.liststyle {
+  list-style:none;
+  display: inline;
+
+
+}
+
+.liststyle li {
+  display: inline;
+  margin: 10px;
+
+}
+
+.liststyle a {
+  color:black;
+  text-decoration: none;
+}
+
+.liststyle a:hover {
+  opacity: .7
+}
+
+.App-logo3 {
+  display: inline;
+  background-color: skyblue;
+  align-items: right
+}
