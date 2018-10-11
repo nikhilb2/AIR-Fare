@@ -5,7 +5,7 @@ import "./App.css";
 import SearchBar from "../src/components/SearchBar/SearchBar.js";
 import Flights from "../src/components/flights/Flights.js";
 import { Amadeus } from "./utils/Amadeus.js";
-//import Nav from "./components/Nav/Nav.js"
+import Navigation from "./components/Nav/Navigation.js"
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,26 +37,24 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header>
           {this.state.loading ? (
             <div className="loading">
               <img src={logo} className="App-logo" alt="logo" />
               <br />
               Loading
             </div>
-          ) : (
-            <div>
-              <div className="headerholder">
+          ) : (<div className="bg-light borderradius"><div  className="d-flex justify-content-around" >
+            <div className="p-2 bd-highlight">
               <img src={logo2}  alt="logo"  className="App-logo2" />
               </div>
-              <p>Welcome to bookmychhutti.com</p>
-
-            </div>
+              <div className="p-2 bd-highlight text-align navback rounded ">
+              <Navigation />
+              </div>
+              </div></div>
             )}
           </header>
-
-        <br />
-        <div className="App-center">
+                    <div className="App-center">
           <SearchBar searchAmadeus={this.searchAmadeus} />
         </div>
         <Flights currency1={this.state.currency1} flights={this.state.flights}/>

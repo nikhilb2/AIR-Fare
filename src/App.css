@@ -99,15 +99,19 @@ div.combine:hover{
 
 .navback {
   background-color: skyblue;
-  font-size: 10px;
-  text-align: right;
-  display: inline;
-  align-items: left;
-  position:static;
-  color: white
+  margin-top: auto;
+  margin-bottom: auto;
 }
   .headerholder {
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+  .text-align {
+    text-align: right;
+  }
+
+  .borderradius {
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
   }

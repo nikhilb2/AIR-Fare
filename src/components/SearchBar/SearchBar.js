@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 import { Amadeus } from "../../utils/Amadeus.js";
+//import { Control,FormControl } from 'react-bootstrap'
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -166,11 +167,11 @@ class SearchBar extends React.Component {
               <option value={values.label}>{values.value}</option>
             ))}
         </datalist>
-        <div>
-          <fieldset className="fieldset">
-            <legend>Search Options</legend>
-
+        <div className="border rounded text-white px-2 text-size">
+          <fieldset id="fieldset">
+            <label htmlFor="fieldset" className="label-margin"><strong>Search Options</strong></label>
             <div>
+            <div >
               <input
                 type="radio"
                 id="oneway"
@@ -179,7 +180,7 @@ class SearchBar extends React.Component {
                 defaultChecked
                 onChange={this.handleOneway}
               />
-              <label htmlFor="oneway" className="radiobutton">
+              <label htmlFor="oneway" className="label-margin">
                 One Way
               </label>
             </div>
@@ -192,12 +193,12 @@ class SearchBar extends React.Component {
                 value="false"
                 onChange={this.handleOneway}
               />
-              <label htmlFor="return" className="radiobutton">
+              <label htmlFor="return" className="label-margin">
                 with Return
               </label>
             </div>
-            <br />
-            <div>
+            </div>
+              <div>
               <input
                 type="checkbox"
                 id="directFlight"
@@ -205,11 +206,11 @@ class SearchBar extends React.Component {
                 value="true"
                 onChange={this.handleDirectFlight}
               />
-              <label htmlFor="directFlight" className="radiobutton">
+              <label htmlFor="directFlight">
                 Direct Flights Only
               </label>
             </div>
-            <br />
+
             <div>
               <select onChange={this.handleCurrencyChange}>
                 <option value="USD">USD</option>
@@ -221,7 +222,7 @@ class SearchBar extends React.Component {
               Select Currency
             </div>
           </fieldset>
-          <br />
+
         </div>
         <label htmlFor="origin">
           Origin
@@ -260,7 +261,8 @@ class SearchBar extends React.Component {
             id="return"
           />
         ]}
-        <p>Passengers</p>
+        <div className="border rounded padding">
+        <p className="label-margin text-size2">Passengers</p>
         <div>
           <div className="select">
             <select onChange={this.handleAdult}>
@@ -307,7 +309,7 @@ class SearchBar extends React.Component {
             Infants{" "}
           </div>
         </div>
-        <br />
+        </div>
         <button onClick={this.search}>SEARCH</button>
       </div>
     );

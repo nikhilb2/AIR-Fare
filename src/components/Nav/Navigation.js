@@ -1,11 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./Nav.css";
-const Home = () => (
+import "./Navigation.css";
+//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+/*const Home = () => (
   <div>
   </div>
 );
-
 const About = () => (
   <div>
   </div>
@@ -39,11 +38,25 @@ const Topic = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
-);
-class Nav extends React.Component {
+);*/
+class Navigation extends React.Component {
   render(){
-  return <Router>
-    <div className="App-logo3">
+  return<ul className="nav justify-content-end ">
+    <li className="navItem ">
+      <a class="nav-link active color" href="/home">Home</a>
+    </li>
+    <li className="navItem color" title="About" href="/about">
+      <a class="nav-link active color" href="/about">About</a>
+    </li>
+    <li className="navItem color" title="Services" href="/services">
+      <a class="nav-link active color" href="/services">Services</a>
+    </li>
+    </ul>
+  }
+}
+  //<Router>
+
+  /*  <div className="App-logo3">
       <ul className='liststyle'>
         <li>
           <Link to="/"> Home </Link>
@@ -63,8 +76,6 @@ class Nav extends React.Component {
       <Route path="/Services" component={Services} />
     </div>
   </Router>
-}
-}
 
-
-export default Nav;
+*/
+export default Navigation

@@ -23,14 +23,15 @@
 
 .SearchBar button {
   cursor: pointer;
-  width: 6.11rem;
-  padding: .87rem 0;
+  width: 5.11rem;
+  padding: .47rem 0;
   border-radius: 54px;
   background-color: #010c3f;
   text-align: center;
-  font-size: .833rem;
+  font-size: .733rem;
   transition: background-color .25s;
-  color:white
+  color:white;
+  margin-top:.3rem;
 }
 
 .SearchBar button:hover {
@@ -41,8 +42,7 @@
 }
 .SearchBar label {
   color:white;
-  margin: 5px;
-  
+
 }
 .select {
   font-size: 10px;
@@ -52,4 +52,19 @@
   position:static;
   color: white
 
+}
+
+.text-size {
+  font-size: 10px;
+}
+
+.label-margin {
+  margin-bottom:.1rem;
+  margin-top:.1rem;
+}
+.padding {
+  padding:.3rem;
+}
+.text-size2 {
+  font-size: 14px;
 }
