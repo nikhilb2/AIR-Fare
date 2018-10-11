@@ -5,7 +5,7 @@ const url =
 const autoUrl = "https://api.sandbox.amadeus.com/v1.2/airports/autocomplete/?apikey="
 let serachWithReturn;
 export const Amadeus = {
-  async search(origin, destination, date, returnOrOneWay,returnDate,currency,directFlight,adults,childs,infants) {
+  async search(origin, destination, date, returnOrOneWay,returnDate,currency) {
     try {
       if (returnOrOneWay) {
         serachWithReturn=""
@@ -13,7 +13,7 @@ export const Amadeus = {
         serachWithReturn="&return_date="+returnDate
       }
       const response = await fetch(
-        `${url}${api}&origin=${origin}&destination=${destination}&departure_date=${date}${serachWithReturn}&currency=${currency}&nonstop=${directFlight}&adults=${adults}&children=${childs}&infants=${infants}`
+        `${url}${api}&origin=${origin}&destination=${destination}&departure_date=${date}${serachWithReturn}&currency=${currency}`
       );
       console.log(response);
       if (response.ok) {

@@ -2,16 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1rem;
-  margin-bottom: 1rem;
+  padding-top: 3.94rem;
+  margin-bottom: 3.33rem;
 }
 
 .SearchBar input[type="text"], input[type="date"]{
   width: 70%;
-  padding: .38rem 0;
+  padding: .48rem 0;
   border: 1px solid #fff;
   border-radius: 3px;
-  margin-bottom: .42rem;
+  margin-bottom: 1.22rem;
   color: #010c3f;
   text-align: center;
   font-size: 1rem;
@@ -21,9 +21,9 @@
   outline: none;
 }
 
-.SearchBar button {
+.SearchBar a {
   cursor: pointer;
-  width: 6.11rem;
+  width: 8.11rem;
   padding: .87rem 0;
   border-radius: 54px;
   background-color: #010c3f;
@@ -33,23 +33,9 @@
   color:white
 }
 
-.SearchBar button:hover {
+.SearchBar a:hover {
   background-color: rgba(108, 65, 233, .7);
 }
 .SearchBar p {
   color:white
-}
-.SearchBar label {
-  color:white;
-  margin: 5px;
-  
-}
-.select {
-  font-size: 10px;
-  text-align: left;
-  display: inline;
-  align-items: left;
-  position:static;
-  color: white
-
 }
