@@ -2,6 +2,7 @@ import React from "react";
 import "./SearchBar.css";
 import { Amadeus } from "../../utils/Amadeus.js";
 //import { Control,FormControl } from 'react-bootstrap'
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);

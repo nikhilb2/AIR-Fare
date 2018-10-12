@@ -6,6 +6,9 @@ import SearchBar from "../src/components/SearchBar/SearchBar.js";
 import Flights from "../src/components/flights/Flights.js";
 import { Amadeus } from "./utils/Amadeus.js";
 import Navigation from "./components/Nav/Navigation.js"
+import Main from "./components/Nav/Main"
+//import {NavRender} from "./components/Nav/Navigation.js"
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,7 +16,7 @@ class App extends Component {
       flights: [],
       loading: false,
       autocomplete: [],
-      currency1:""
+      currency1:"",
     };
     this.searchAmadeus = this.searchAmadeus.bind(this);
   }
@@ -49,15 +52,16 @@ class App extends Component {
               <img src={logo2}  alt="logo"  className="App-logo2" />
               </div>
               <div className="p-2 bd-highlight text-align navback rounded ">
-              <Navigation />
+              <Navigation  />
               </div>
               </div></div>
             )}
           </header>
                     <div className="App-center">
-          <SearchBar searchAmadeus={this.searchAmadeus} />
+                    <SearchBar searchAmadeus={this.searchAmadeus} />
         </div>
         <Flights currency1={this.state.currency1} flights={this.state.flights}/>
+        <Main />
       </div>
     );
   }
