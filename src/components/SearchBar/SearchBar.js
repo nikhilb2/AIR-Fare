@@ -1,8 +1,9 @@
 import React from "react";
 import "./SearchBar.css";
 import { Amadeus } from "../../utils/Amadeus.js";
+var moment = require('moment');
 //import { Control,FormControl } from 'react-bootstrap'
-
+var today = new Date()
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -151,7 +152,8 @@ class SearchBar extends React.Component {
     this.setState({ infants: event.target.value });
   }
   render() {
-    console.log("Toggle " + this.state.directFlight);
+    let newDate = `${moment(today).format('YYYY')}-${moment(today).format('MM')}-${moment(today).format('DD')}`
+    console.log(newDate);
     return (
       <div className="SearchBar">
         <datalist id="suggestions">
@@ -248,7 +250,7 @@ class SearchBar extends React.Component {
         <label htmlFor="doj">
           Date of Journey
         </label>
-        <input placeholder="date" type="date" onChange={this.handleDate} id="doj"/>
+        <input placeholder="date" type="date" onChange={this.handleDate} id="doj" min={newDate}/>
 
         {!this.state.returnOrOneWay && [
           <label htmlFor="return">
@@ -260,6 +262,7 @@ class SearchBar extends React.Component {
             onChange={this.handleReturnDateChange}
             disabled={this.state.returnOrOneWay}
             id="return"
+            min={this.state.date}
           />
         ]}
         <div className="border rounded padding">

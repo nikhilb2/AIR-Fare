@@ -2,10 +2,13 @@ import React from "react";
 import "./Flights.css";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
+import { Amadeus } from "../../utils/Amadeus.js";
 var moment = require('moment');
 var format1 ='MMMM Do YYYY';
 var format2='HH:mm'
-var airlines = require('airlines-iata-codes');
+var aviationJson = require("aviation-json");
+var airlines = aviationJson.airlines;
+var air2 =Object.keys(airlines)
 const styles = theme => ({
   root: {
     ...theme.mixins.gutters(),
@@ -16,6 +19,7 @@ const styles = theme => ({
 });
 class Flights extends React.Component {
     render() {
+    console.log(airlines)
     return (
       <div>
       {this.props.flights ? (
@@ -28,28 +32,25 @@ class Flights extends React.Component {
                   {" "}
                   <div>********</div>
                   Duration {results2.outbound.duration}{" "}
-                  {results2.outbound.flights.map(result3 => {
-                    const airlineName = airlines.getAirlineName(result3.operating_airline)
-                    console.log(airlineName)
-                    return(
+                  {results2.outbound.flights.map(result3 => (
                     <div>
-                      {typeof airlineName==='string' && airlineName} {" "}
+                      Flight {" "} {airlines[air2.filter(key=>airlines[key].IATA===result3.operating_airline)]?airlines[air2.filter(key=>airlines[key].IATA===result3.operating_airline)].name:" "} {" "}
                       <strong>
                         {result3.operating_airline} {result3.flight_number}
                       </strong>{" "}
                       From <strong>{result3.origin.airport}</strong> Departure
-                      on <strong>{moment(result3.departs_at).format(format1)} at {moment(result3.departs_at).format(format2)}</strong> To >>>>>>>{" "}
+                      on {moment(result3.departs_at).format(format1)} at {moment(result3.departs_at).format(format2)} To >>>>>>>{" "}
                       <strong>{result3.destination.airport}</strong> Arrival
-                      on <strong>{moment(result3.arrives_at).format(format1)} at {moment(result3.arrives_at).format(format2)}</strong>
+                      on {moment(result3.arrives_at).format(format1)} at {moment(result3.arrives_at).format(format2)}
                       <br />
                     </div>
-                  )})}
+                  ))}
                   <br />
                   {results2.inbound?<div><strong>Return flight</strong>
                   <br /> Duration {results2.inbound.duration}
                   {results2.inbound.flights.map(result4 => (
                     <div>
-                      {airlines.getAirlineName(result4.operating_airline)} {" "}
+                      Flight{" "}
                       <strong>
                         {result4.operating_airline} {result4.flight_number}
                       </strong>{" "}

@@ -42,11 +42,19 @@ class App extends Component {
       <div className="App">
         <header>
           {this.state.loading ? (
+            <div className="bg-light borderradius"><div  className="d-flex justify-content-around" >
+              <div className="p-2 bd-highlight">
+                <img src={logo2}  alt="logo"  className="App-logo2" />
+                </div>
+                <div className="p-2 bd-highlight text-align navback rounded ">
+                <Navigation  />
+                </div>
+                </div>
             <div className="loading">
               <img src={logo} className="App-logo" alt="logo" />
               <br />
               Loading
-            </div>
+            </div></div>
           ) : (<div className="bg-light borderradius"><div  className="d-flex justify-content-around" >
             <div className="p-2 bd-highlight">
               <img src={logo2}  alt="logo"  className="App-logo2" />

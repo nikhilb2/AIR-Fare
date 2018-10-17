@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.1.2",
     "@material-ui/icons": "^3.0.1",
+    "airlines-iata-codes": "^1.0.1",
+    "aviation-json": "^0.3.1",
     "bootstrap": "^4.1.3",
     "browser": "^0.2.6",
     "jquery": "^3.3.1",
