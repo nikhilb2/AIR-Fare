@@ -4,6 +4,13 @@
   align-items: center;
   padding-top: 1rem;
   margin-bottom: 1rem;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  background-color: purple;
+  min-width: 250px;
+  width: 20%;
+  padding:15px;
+  border-radius: 15px;
 }
 
 .SearchBar input[type="text"], input[type="date"]{

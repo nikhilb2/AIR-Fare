@@ -1,9 +1,16 @@
 import React from "react";
 import "./SearchBar.css";
 import { Amadeus } from "../../utils/Amadeus.js";
+import { css } from 'react-emotion';
+import { BeatLoader } from 'react-spinners';
 var moment = require('moment');
 //import { Control,FormControl } from 'react-bootstrap'
 var today = new Date()
+const override = css`
+    display: block;
+    margin: 0 auto;
+    border-color: red;
+`;
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -314,7 +321,15 @@ class SearchBar extends React.Component {
           </div>
         </div>
         </div>
-        <button onClick={this.search}>SEARCH</button>
+        {this.props.loading?<div className='sweet-loading'>
+        <button><BeatLoader
+          className={override}
+          sizeUnit={"px"}
+          size={10}
+          color={'#123abc'}
+          loading={this.state.loading}
+        /></button>
+      </div> :<button onClick={this.search}>SEARCH</button>}
       </div>
     );
   }

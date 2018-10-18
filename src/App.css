@@ -25,14 +25,19 @@ margin-top: 5px
   color: #61dafb;
 }
 
-.App-center {
-  background: purple;
-  width: 20%;
-  min-width: 250px;
-  margin:auto;
-  border-radius: 10px;
-  padding:5px
+.displayin {
+  display: flex;
+  width: 100%;
 }
+.slideshow {
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  margin: auto;
+  margin-top: 1rem;
+  padding:10px;
+  width: 70%;
+}
+
 
 @keyframes App-logo-spin {
   from {
@@ -106,9 +111,9 @@ div.combine:hover{
   margin-bottom: auto;
 }
   .headerholder {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
   .text-align {
     text-align: right;
