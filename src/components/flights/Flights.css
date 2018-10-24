@@ -1,15 +1,29 @@
-button {
-  cursor: pointer;
-  width: 6rem !important;
-  padding: .47rem 0;
-  border-radius: 25px !important;
-  background-color: #010c3f;
-  text-align: center;
-  font-size: .733rem;
-  transition: background-color .25s;
-  color:white;
-  margin-top:.3rem;
-}
- button:hover {
-  background-color: rgba(108, 65, 233, .7);
-}
+  button {
+    cursor: pointer;
+    width: 6rem !important;
+    padding: .47rem 0;
+    border-radius: 25px !important;
+    background-color: #010c3f;
+    text-align: center;
+    font-size: .733rem;
+    transition: background-color .25s;
+    color:white;
+    margin-top:.3rem;
+  }
+   button:hover {
+    background-color: rgba(108, 65, 233, .7);
+  }
+  .bookNow {
+    position: fixed;
+    margin-left: auto;
+    margin-top: auto;
+    height: auto;
+    top:20%;
+    left: auto;
+    left: 20%;
+    width: auto%;
+    background-color: white;
+    border:solid purple 10px;
+    padding:5px;
+    border-radius: 15px
+  }

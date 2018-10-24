@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
       originName: "",
       destination: "BOM",
       date: "2018-12-19",
-      returnDate: "",
+      returnDate: "2018-12-20",
       term: "",
       term2: "",
       autocomplete: [],
